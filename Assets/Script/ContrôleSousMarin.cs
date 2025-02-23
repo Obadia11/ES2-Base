@@ -6,6 +6,8 @@ using UnityEngine.Windows;
 
 public class ContrôleSousMarin : MonoBehaviour
 {
+    
+    
     // variables de mouvement et contrôle
     [SerializeField] private float _vitesseDéplacement;
     private Rigidbody _rb;
@@ -27,6 +29,8 @@ public class ContrôleSousMarin : MonoBehaviour
         Vector2 directionAvecVitesse = directionBase.Get<Vector2>() * _vitesseDéplacement;
         directionInput = new Vector3(directionAvecVitesse.x, 0f, directionAvecVitesse.y);
     }
+
+   
 
     private void FixedUpdate()
     {
