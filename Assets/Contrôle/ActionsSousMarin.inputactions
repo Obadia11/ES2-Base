@@ -6,9 +6,27 @@
             "id": "9986e537-2ae4-4704-b83e-d774816cea81",
             "actions": [
                 {
-                    "name": "Déplacer",
+                    "name": "Avance/Recule",
                     "type": "Button",
                     "id": "42050f0f-1564-46cd-b221-6d40cdabd418",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Monte/Descend",
+                    "type": "Button",
+                    "id": "95e216f8-70c3-4d02-8ad3-01a56af7c66b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Gauche/Droite",
+                    "type": "Button",
+                    "id": "375b3910-a59e-4293-bfd8-74588327fb9b",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -23,7 +41,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Déplacer",
+                    "action": "Avance/Recule",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -34,7 +52,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Déplacer",
+                    "action": "Avance/Recule",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -45,7 +63,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Déplacer",
+                    "action": "Avance/Recule",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -56,7 +74,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Déplacer",
+                    "action": "Avance/Recule",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -67,7 +85,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Déplacer",
+                    "action": "Avance/Recule",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -78,51 +96,95 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Déplacer",
+                    "action": "Avance/Recule",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "negative",
+                    "name": "positive",
                     "id": "a5e91765-dd74-45e4-ab14-cc6449882663",
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Déplacer",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "01e8eb0a-f932-4a86-8789-9c9690dc5214",
-                    "path": "<Keyboard>/downArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Déplacer",
+                    "action": "Avance/Recule",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "negative",
-                    "id": "367eb920-30cc-4fce-804c-45ee22c6fe0c",
-                    "path": "<Keyboard>/leftArrow",
+                    "id": "01e8eb0a-f932-4a86-8789-9c9690dc5214",
+                    "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Déplacer",
+                    "action": "Avance/Recule",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "1D Axis",
+                    "id": "9a4dd1ec-8fac-4788-ba6d-7578cecd297b",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Monte/Descend",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "positive",
-                    "id": "a8d7ffb6-daf7-48f9-a1f3-746b235368ee",
+                    "id": "65f9d51f-6caf-4af2-a0e0-aad643d1d590",
+                    "path": "<Keyboard>/b",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Monte/Descend",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "negative",
+                    "id": "251c8e66-1ffb-4ed2-84ce-91473c0b37cd",
+                    "path": "<Keyboard>/v",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Monte/Descend",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "b2669469-7b50-435c-9706-ce8ea954d607",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Gauche/Droite",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "positive",
+                    "id": "47702751-de1c-42be-9cf3-f41559290921",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Gauche/Droite",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "negative",
+                    "id": "ae5dafdb-a027-4d2d-ac2a-1031a1922019",
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Déplacer",
+                    "action": "Gauche/Droite",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }
