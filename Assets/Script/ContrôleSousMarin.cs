@@ -18,7 +18,7 @@ public class ContrôleSousMarin : MonoBehaviour
     private Animator _animator;
     private float _rotationVelocity;
 
-    private void Start()
+     void Start()
     {
         _rb = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
@@ -32,7 +32,7 @@ public class ContrôleSousMarin : MonoBehaviour
 
    
 
-    private void FixedUpdate()
+     void FixedUpdate()
     {
         // calculer et appliquer la translation
         Vector3 mouvement = directionInput;
@@ -54,5 +54,19 @@ public class ContrôleSousMarin : MonoBehaviour
         Vector3 vitesseSurPlane = new Vector3(_rb.velocity.x, 0f, _rb.velocity.y);
         _animator.SetFloat("Vitesse", vitesseSurPlane.magnitude * _modifierAnimTranslation);
         _animator.SetFloat("Déplacement", vitesseSurPlane.magnitude);
+    }
+
+    void OnMonterDescendre(InputAction.CallbackContext context)
+    {
+        _monterDescendreInput = context.ReadValue<float>();
+        float InputValue = context.ReadValue<float>();
+        directionInput.y = InputValue * _vitesseDéplacement;
+    }
+
+    void OnAccelerer(InputAction.CallbackContext context)
+    {
+        _monterDescendreInput = context.ReadValue<float>();
+        float InputValue = context.ReadValue<float>();
+        directionInput.y = InputValue * _vitesseDéplacement;
     }
 }
