@@ -6,17 +6,16 @@
             "id": "9986e537-2ae4-4704-b83e-d774816cea81",
             "actions": [
                 {
-<<<<<<< HEAD
                     "name": "AvancerReculer",
-=======
+
                     "name": "Avance/Recule",
->>>>>>> 7e6f184c51324c7d513c4bffe868c343a633c31f
+
                     "type": "Button",
                     "id": "42050f0f-1564-46cd-b221-6d40cdabd418",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-<<<<<<< HEAD
+
                     "initialStateCheck": true
                 },
                 {
@@ -27,7 +26,7 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
-=======
+
                     "initialStateCheck": false
                 },
                 {
@@ -47,7 +46,7 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
->>>>>>> 7e6f184c51324c7d513c4bffe868c343a633c31f
+
                 }
             ],
             "bindings": [
@@ -58,11 +57,10 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-<<<<<<< HEAD
                     "action": "AvancerReculer",
-=======
+
                     "action": "Avance/Recule",
->>>>>>> 7e6f184c51324c7d513c4bffe868c343a633c31f
+
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -73,11 +71,11 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-<<<<<<< HEAD
+
                     "action": "AvancerReculer",
-=======
+
                     "action": "Avance/Recule",
->>>>>>> 7e6f184c51324c7d513c4bffe868c343a633c31f
+
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -88,19 +86,14 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-<<<<<<< HEAD
                     "action": "AvancerReculer",
-=======
                     "action": "Avance/Recule",
->>>>>>> 7e6f184c51324c7d513c4bffe868c343a633c31f
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
-<<<<<<< HEAD
                     "name": "1D Axis",
                     "id": "eed89c2a-9959-4b49-8a6d-45722b3bc46c",
-=======
                     "name": "negative",
                     "id": "43444752-5978-45f8-a63e-f45e6c6d8f92",
                     "path": "<Keyboard>/a",
@@ -125,49 +118,40 @@
                 {
                     "name": "Flèches",
                     "id": "b335d99d-aba3-4a77-9a29-6929a356e0fd",
->>>>>>> 7e6f184c51324c7d513c4bffe868c343a633c31f
                     "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-<<<<<<< HEAD
                     "action": "MonterDescendre",
-=======
                     "action": "Avance/Recule",
->>>>>>> 7e6f184c51324c7d513c4bffe868c343a633c31f
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "positive",
-<<<<<<< HEAD
                     "id": "cd1a1fc8-66c7-4534-b6d0-2eb176d30f43",
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "MonterDescendre",
-=======
                     "id": "a5e91765-dd74-45e4-ab14-cc6449882663",
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Avance/Recule",
->>>>>>> 7e6f184c51324c7d513c4bffe868c343a633c31f
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "negative",
-<<<<<<< HEAD
                     "id": "2dd42d85-b9c6-4843-9940-ceb28cdeeca4",
                     "path": "<Keyboard>/t",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "MonterDescendre",
-=======
                     "id": "01e8eb0a-f932-4a86-8789-9c9690dc5214",
                     "path": "<Keyboard>/downArrow",
                     "interactions": "",
@@ -240,7 +224,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Gauche/Droite",
->>>>>>> 7e6f184c51324c7d513c4bffe868c343a633c31f
                     "isComposite": false,
                     "isPartOfComposite": true
                 }
