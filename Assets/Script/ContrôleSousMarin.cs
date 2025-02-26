@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Rigidbody2D))]
+
 public class ContrôleSousMarin : MonoBehaviour
 {
     [SerializeField] private float _vitesseDéplacement = 5f;
+    [SerializeField] private float _modifierAnimTranslation;
     private Rigidbody _rb; 
 
-    private Vector2 directionInput;
+    private Vector3 directionInput;
     private Animator _animator;
 
     void Start()
@@ -31,23 +32,33 @@ public class ContrôleSousMarin : MonoBehaviour
         directionInput = directionBase.Get<Vector2>() * _vitesseDéplacement;
     }
 
-    void FixedUpdate()
+    
+
+    void OnMonterDescendre(InputValue valeur)
     {
+        float inputValue = valeur.Get<float>();
+        directionInput.y = inputValue * _vitesseDéplacement;
+        
+    }
+
+    void OnAccelererReculer(InputValue valeur)
+    {
+        float inputValue = valeur.Get<float>();
+        directionInput.z = inputValue * _vitesseDéplacement;
+    }
+
+void FixedUpdate()
+    {
+        Vector3 mouvement = directionInput;
         _rb.velocity = directionInput;
 
         // Animation
-        _animator.SetFloat("Vitesse", directionInput.magnitude);
-    }
+        //_animator.SetFloat("Vitesse", directionInput.magnitude);
+        _rb.AddForce(mouvement, ForceMode.VelocityChange);
 
-    void OnMonterDescendre(InputAction.CallbackContext context)
-    {
-        float inputValue = context.ReadValue<float>();
-        directionInput.y = inputValue * _vitesseDéplacement;
-    }
-
-    void OnAccelerer(InputAction.CallbackContext context)
-    {
-        float inputValue = context.ReadValue<float>();
-        directionInput.x = inputValue * _vitesseDéplacement;
+        // calculer un modifiant pour la vitesse d'animation
+        Vector3 vitesseSurPlane = new Vector3(_rb.velocity.x, 0f, _rb.velocity.z);
+        _animator.SetFloat("Vitesse", vitesseSurPlane.magnitude * _modifierAnimTranslation);
+        _animator.SetFloat("Deplacement", vitesseSurPlane.magnitude);
     }
 }

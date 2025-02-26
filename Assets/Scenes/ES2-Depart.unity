@@ -1814,6 +1814,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8632670369948054855}
+    - targetCorrespondingSourceObject: {fileID: 8298684462619277302, guid: 20c0aa25022fd474ebac164d517acaa3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8632670369948054859}
   m_SourcePrefab: {fileID: 100100000, guid: 20c0aa25022fd474ebac164d517acaa3, type: 3}
 --- !u!4 &8632670369948054854 stripped
 Transform:
@@ -1833,7 +1837,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80c30812f7512fb469d899f8743bb774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "_vitesseD\xE9placement": 5
+  "_vitesseD\xE9placement": 0.6
+  _modifierAnimTranslation: 1.24
 --- !u!114 &8632670369948054856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1846,7 +1851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 9be00d8205b41a04295676e6f93668a5,
+  m_Actions: {fileID: -944628639613478452, guid: 0f42fd5b5e43209428365ef747ae1d05,
     type: 3}
   m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
@@ -1865,6 +1870,33 @@ MonoBehaviour:
   m_DefaultActionMap: SousMarin
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!54 &8632670369948054859
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639391581}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
