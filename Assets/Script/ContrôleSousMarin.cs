@@ -6,12 +6,11 @@ using UnityEngine.InputSystem;
 public class ContrôleSousMarin : MonoBehaviour
 {
     [SerializeField] private float _vitesseDéplacement = 5f;
-    [SerializeField] private float _vitesseBoost = 10f; // Vitesse avec Shift
-    [SerializeField] private float _modifierAnimTranslation;
+    [SerializeField] private float _modifierAnimTranslation = 1f;
     private Rigidbody _rb;
     private Vector3 directionInput;
     private Animator _animator;
-    private float _boostMultiplier = 1f; // Par défaut, vitesse normale
+    private bool estAccéléré = false;
 
     void Start()
     {
@@ -22,41 +21,62 @@ public class ContrôleSousMarin : MonoBehaviour
         {
             Debug.LogError("Rigidbody manquant sur le sous-marin !");
         }
+        if (_animator == null)
+        {
+            Debug.LogError("Animator manquant sur le sous-marin !");
+        }
     }
 
     void OnDéplacer(InputValue directionBase)
     {
-        directionInput = directionBase.Get<Vector2>() * _vitesseDéplacement * _boostMultiplier;
+        directionInput = directionBase.Get<Vector2>() * _vitesseDéplacement;
     }
 
     void OnMonterDescendre(InputValue valeur)
     {
         float inputValue = valeur.Get<float>();
-        directionInput.y = inputValue * _vitesseDéplacement * _boostMultiplier;
+        directionInput.y = inputValue * _vitesseDéplacement;
     }
 
     void OnAccelererReculer(InputValue valeur)
     {
         float inputValue = valeur.Get<float>();
-        directionInput.z = inputValue * _vitesseDéplacement * _boostMultiplier;
+        directionInput.z = inputValue * _vitesseDéplacement;
     }
 
-    // Gère le boost avec ton action "AccelererMouvement"
     void OnAccelererMouvement(InputValue valeur)
     {
-        float boostValue = valeur.Get<float>(); // -1 (Right Shift) ou 1 (Left Shift)
-        _boostMultiplier = (boostValue > 0) ? 2f : 0.5f; // Boost ou ralentissement
+        float accelInput = valeur.Get<float>();
+        estAccéléré = accelInput > 0;
     }
 
     void FixedUpdate()
     {
-        _rb.velocity = directionInput;
+        // Appliquer le mouvement et accélération (2x si Shift est pressé)
+        Vector3 mouvement = directionInput * (estAccéléré ? 2f : 1f);
+        _rb.velocity = mouvement;
 
-        // Animation
-        _rb.AddForce(directionInput, ForceMode.VelocityChange);
+        // Vitesse horizontale et verticale
+        float vitesseHorizontale = new Vector2(_rb.velocity.x, _rb.velocity.z).magnitude;
+        float vitesseVerticale = Mathf.Abs(_rb.velocity.y);
 
-        Vector3 vitesseSurPlane = new Vector3(_rb.velocity.x, 0f, _rb.velocity.z);
-        _animator.SetFloat("Vitesse", vitesseSurPlane.magnitude * _modifierAnimTranslation);
-        _animator.SetFloat("Deplacement", vitesseSurPlane.magnitude);
+        // Choix des animations selon le mouvement
+        if (_rb.velocity == Vector3.zero)
+        {
+            _animator.Play("AnimRepos");
+        }
+        else if (vitesseVerticale > 0)
+        {
+            _animator.Play("AnimPetitesHelices");
+        }
+        else
+        {
+            _animator.Play("AnimGrandeHelice");
+        }
+
+        // Ajuster la vitesse des animations (inversée si on recule)
+        float vitesseAnim = (vitesseHorizontale + vitesseVerticale) * _modifierAnimTranslation;
+        _animator.SetFloat("VitesseAnim", estAccéléré ? vitesseAnim * 2f : vitesseAnim);
+        _animator.SetFloat("Direction", Mathf.Sign(_rb.velocity.z)); // 1 pour avant, -1 pour arrière
     }
 }
